@@ -5,7 +5,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest"
   },
   "dependencies": {
     "next": "12.0.10",
@@ -20,6 +21,7 @@
     "@types/react": "17.0.39",
     "eslint": "8.9.0",
     "eslint-config-next": "12.0.10",
+    "jest": "^27.5.1",
     "postcss-preset-env": "^7.4.0",
     "prettier": "^2.5.1",
     "prettier-plugin-organize-imports": "^2.3.4",
