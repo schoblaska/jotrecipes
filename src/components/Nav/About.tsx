@@ -3,7 +3,7 @@ import React from "react";
 const About = () => (
   <div className="bg-purple-500 p-6 font-mono text-sm text-purple-100">
     <p>
-      Format Markdown recipes as cards from Ben Cohen's{" "}
+      Format Markdown recipes as cards from Ben Cohen&apos;s{" "}
       <a
         href="http://ftp.gwdg.de/pub/ctan/macros/latex/contrib/cuisine/cuisine.pdf"
         className="underline hover:text-purple-50"
