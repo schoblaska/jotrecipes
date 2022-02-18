@@ -1,6 +1,7 @@
 import React from "react";
 import type { RecipeType } from "lib/parseRecipes";
 import ReactMarkdown from "react-markdown";
+import Step from "components/Recipe/Step";
 
 const Recipe = ({ recipe }: { recipe: RecipeType }) => (
   <div className="mb-8">
@@ -18,23 +19,7 @@ const Recipe = ({ recipe }: { recipe: RecipeType }) => (
         <table className="mt-4">
           <tbody>
             {recipe.steps.map((step, i) => (
-              <tr key={i}>
-                <td className="whitespace-nowrap pr-4 pb-4 align-top">
-                  {step.title}
-                </td>
-                <td className="w-[40%] px-4 pb-4 align-top">
-                  <ul className="ml-4 list-disc">
-                    {step.ingredients.map((ingredient, i) => (
-                      <li key={i}>{ingredient}</li>
-                    ))}
-                  </ul>
-                </td>
-                <td className="px-4 pb-4 align-top">
-                  {step.body.map((body, i) => (
-                    <div key={i}>{body}</div>
-                  ))}
-                </td>
-              </tr>
+              <Step key={i} step={step} />
             ))}
           </tbody>
         </table>

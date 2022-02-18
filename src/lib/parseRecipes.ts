@@ -48,7 +48,7 @@ const parseRecipes = (str: string): RecipeType[] => {
 
         // push ingredient or body onto the last step
         if (ingredientMatch) {
-          step.ingredients.push(ingredientMatch[1]);
+          step.ingredients.push(line);
         } else {
           if (step.body.length > 0 || line) {
             step.body.push(line);

@@ -19,6 +19,6 @@
   }
 
   ul {
-    @apply list-inside list-disc pb-2;
+    @apply ml-4 list-outside list-disc pb-2;
   }
 }
