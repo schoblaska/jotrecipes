@@ -1,4 +1,4 @@
 module.exports = {
   mode: "jit",
-  content: ["./src/**/*.{js,jsx,ts,tsx,vue}"],
+  content: ["./src/**/*.{js,jsx,ts,tsx,vue,css}"],
 };
