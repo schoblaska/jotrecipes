@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="400px" src="https://raw.githubusercontent.com/joeyschoblaska/recipebox/main/docs/logo.png">
+  <img width="400px" style="padding-bottom: 40px" src="https://raw.githubusercontent.com/joeyschoblaska/recipebox/main/docs/logo.png">
 </p>
 
 ## Development
