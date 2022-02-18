@@ -14,7 +14,11 @@
 }
 
 .markdown {
-  &p {
+  p {
     @apply pb-2;
+  }
+
+  ul {
+    @apply list-inside list-disc pb-2;
   }
 }
