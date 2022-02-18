@@ -10,14 +10,18 @@ const Editor = ({
   value: string;
   setValue: Dispatch<SetStateAction<string>>;
 }) => (
-  <SimpleEditor
-    value={value}
-    onValueChange={(v) => setValue(v)}
-    highlight={(v) => prism.highlight(v, prism.languages.md, "markdown")}
-    className="min-h-screen w-full resize-none bg-gray-800 p-4 font-mono text-sm text-gray-100"
-    textareaClassName="outline-0"
-    padding={24}
-  />
+  <div className="min-h-screen w-full bg-gray-800">
+    <div className="mx-auto max-w-4xl">
+      <SimpleEditor
+        value={value}
+        onValueChange={(v) => setValue(v)}
+        highlight={(v) => prism.highlight(v, prism.languages.md, "markdown")}
+        className="resize-none p-4 font-mono text-sm text-gray-100"
+        textareaClassName="outline-0"
+        padding={24}
+      />
+    </div>
+  </div>
 );
 
 export default Editor;
