@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  [https://recipebox.jsch.io](https://recipebox.jsch.io)
+  <a href="https://recipebox.jsch.io">https://recipebox.jsch.io</a>
 </p>
 
 A tool for converting Markdown recipes into a printable card format from Ben Cohen's [cuisine package](http://ftp.gwdg.de/pub/ctan/macros/latex/contrib/cuisine/cuisine.pdf) for LaTeX. This format puts the ingredients and instructions for each step side-by-side, making it easier to scan while you're cooking.
