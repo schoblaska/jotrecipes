@@ -38,17 +38,21 @@ const parseRecipes = (str: string): RecipeType[] => {
           ingredients: [],
           body: [],
         });
-      } else if (recipe.steps.length == 0 && line) {
+      } else if (recipe.steps.length == 0) {
         // no steps parsed yet, push onto recipe body
-        recipe.body.push(line);
+        if (recipe.body.length > 0 || line) {
+          recipe.body.push(line);
+        }
       } else {
         const step = recipe.steps[recipe.steps.length - 1];
 
         // push ingredient or body onto the last step
         if (ingredientMatch) {
           step.ingredients.push(ingredientMatch[1]);
-        } else if (line) {
-          step.body.push(line);
+        } else {
+          if (step.body.length > 0 || line) {
+            step.body.push(line);
+          }
         }
       }
     }

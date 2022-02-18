@@ -1,5 +1,6 @@
 import React from "react";
 import type { RecipeType } from "lib/parseRecipes";
+import ReactMarkdown from "react-markdown";
 
 const Recipe = ({ recipe }: { recipe: RecipeType }) => (
   <div className="mb-8">
@@ -9,12 +10,8 @@ const Recipe = ({ recipe }: { recipe: RecipeType }) => (
     </div>
     <div>
       {recipe.body.length > 0 && (
-        <div className="border-b border-gray-700 py-2">
-          {recipe.body.map((line, i) => (
-            <div className="pb-2" key={i}>
-              {line}
-            </div>
-          ))}
+        <div className="markdown border-b border-gray-700 py-2">
+          <ReactMarkdown>{recipe.body.join("\n")}</ReactMarkdown>
         </div>
       )}
       {recipe.steps && (

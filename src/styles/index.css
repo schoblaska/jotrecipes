@@ -12,3 +12,9 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+.markdown {
+  &p {
+    @apply pb-2;
+  }
+}
