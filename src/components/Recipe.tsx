@@ -6,8 +6,12 @@ import Step from "components/Recipe/Step";
 const Recipe = ({ recipe }: { recipe: RecipeType }) => (
   <div className="mb-8">
     <div className="mb-2 flex items-end border-b-2 border-gray-700">
-      <div className="flex-grow font-bold">{recipe.title}</div>
-      <div>{recipe.subtitle}</div>
+      <div className="flex-grow font-bold">
+        <ReactMarkdown>{recipe.title}</ReactMarkdown>
+      </div>
+      <div>
+        <ReactMarkdown>{recipe.subtitle}</ReactMarkdown>
+      </div>
     </div>
     <div>
       {recipe.body.length > 0 && (
