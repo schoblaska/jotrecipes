@@ -1,14 +1,14 @@
 import { GetStaticProps, GetStaticPaths } from "next";
 import App from "components/App";
 
-const RecipePage = ({ markdown }: { markdown: string }) => {
-  return <App initialText={markdown} />;
+const RecipePage = ({ text }: { text: string }) => {
+  return <App initialText={text} />;
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
-      markdown: `# ${params?.id}`,
+      text: `# ${params?.id}`,
     },
   };
 };
