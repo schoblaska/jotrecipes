@@ -1,22 +1,23 @@
-import type { NextPage } from "next";
+import { GetStaticProps, GetStaticPaths } from "next";
+import App from "components/App";
 
-const RecipePage: NextPage = ({ markdown }) => {
-  return <p>{markdown}</p>;
+const RecipePage = ({ markdown }: { markdown: string }) => {
+  return <App initialText={markdown} />;
 };
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
-      markdown: `ID: ${params.id}`,
+      markdown: `# ${params?.id}`,
     },
   };
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [],
     fallback: "blocking",
   };
-}
+};
 
 export default RecipePage;
