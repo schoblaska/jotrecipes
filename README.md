@@ -1,5 +1,6 @@
 <p align="center">
-  <img width="400px" src="https://raw.githubusercontent.com/joeyschoblaska/recipebox/main/docs/logo.png">
+  ![Recipe Box](https://raw.githubusercontent.com/joeyschoblaska/recipebox/main/docs/logo-dark@2x.png#gh-dark-mode-only)
+  ![Recipe Box](https://raw.githubusercontent.com/joeyschoblaska/recipebox/main/docs/logo-light@2x.png#gh-light-mode-only)
 </p>
 
 <p align="center">
