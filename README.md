@@ -1,7 +1,5 @@
-<p align="center">
-  ![Recipe Box](/docs/logo-dark@2x.png#gh-dark-mode-only)
-  ![Recipe Box](/docs/logo-light@2x.png#gh-light-mode-only)
-</p>
+![Recipe Box](/docs/logo-dark@2x.png#gh-dark-mode-only)
+![Recipe Box](/docs/logo-light@2x.png#gh-light-mode-only)
 
 <p align="center">
   <a href="https://recipebox.jsch.io">https://recipebox.jsch.io</a>
