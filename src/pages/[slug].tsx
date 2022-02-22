@@ -7,10 +7,16 @@ const RecipePage = ({ text }: { text: string }) => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+  if (!params.slug) {
+    return {
+      notFound: true,
+    };
+  }
+
   try {
     const recipe = await prisma.recipe.findUnique({
       where: {
-        slug: (params?.slug || "") as string,
+        slug: params.slug,
       },
     });
 
