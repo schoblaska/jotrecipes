@@ -14,6 +14,7 @@ const Modal = ({ isOpen, setIsOpen, title }: ModalProps) => (
     isOpen={isOpen}
     overlayClassName="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
     className="flex min-h-screen justify-center px-4 pt-4 pb-20"
+    onRequestClose={() => setIsOpen(false)}
   >
     <div className="flex flex-col justify-center">
       <div className="max-w-md font-mono text-sm text-white">
