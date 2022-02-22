@@ -16,7 +16,7 @@ const App = ({ initialText }: { initialText?: string }) => {
         <div className="no-scrollbar overflow-scroll">
           <Editor value={text} setValue={setText} />
         </div>
-        <Nav printRef={printRef} />
+        <Nav printRef={printRef} text={text} />
       </div>
       <div className="no-scrollbar h-screen overflow-scroll p-6">
         <div

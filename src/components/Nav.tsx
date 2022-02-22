@@ -4,13 +4,22 @@ import PrintButton from "components/PrintButton";
 import About from "components/Nav/About";
 import ShareModal from "components/ShareModal";
 
-const Nav = ({ printRef }: { printRef: RefObject<HTMLDivElement> }) => {
+interface NavProps {
+  printRef: RefObject<HTMLDivElement>;
+  text: string;
+}
+
+const Nav = ({ printRef, text }: NavProps) => {
   const [showAbout, setShowAbout] = useState(false);
   const [shareModalIsOpen, setShareModalIsOpen] = useState(false);
 
   return (
     <div className="w-full bg-purple-600">
-      <ShareModal isOpen={shareModalIsOpen} setIsOpen={setShareModalIsOpen} />
+      <ShareModal
+        isOpen={shareModalIsOpen}
+        setIsOpen={setShareModalIsOpen}
+        text={text}
+      />
       <div className="mx-auto max-w-4xl">
         <div className="flex h-16 flex-none items-center px-6 font-mono text-purple-100">
           <div

@@ -6,19 +6,27 @@ interface ModalProps {
   isOpen: boolean;
   setIsOpen: Dispatch<boolean>;
   title?: string;
-  children?: JSX.Element | string;
+  children?: JSX.Element | JSX.Element[] | string;
+  onAfterClose?: () => void;
 }
 
-const Modal = ({ isOpen, setIsOpen, title, children }: ModalProps) => (
+const Modal = ({
+  isOpen,
+  setIsOpen,
+  title,
+  children,
+  onAfterClose,
+}: ModalProps) => (
   <ReactModal
     ariaHideApp={false}
     isOpen={isOpen}
-    overlayClassName="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity flex flex-col justify-center min-h-screen"
+    onAfterClose={onAfterClose}
+    overlayClassName="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity flex flex-col justify-center min-h-screen"
     className="mx-auto max-w-md font-mono text-sm text-white focus:outline-0"
     onRequestClose={() => setIsOpen(false)}
   >
     <div className="flex items-center justify-end bg-purple-600 px-4 py-2">
-      <div className="flex-grow leading-none">{title}</div>
+      <div className="mr-4 flex-grow leading-none">{title}</div>
       <div
         className="cursor-pointer font-mono"
         onClick={() => setIsOpen(false)}
