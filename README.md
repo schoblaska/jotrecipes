@@ -5,7 +5,9 @@
 
 <p align="center">
   <a href="https://recipebox.jsch.io">https://recipebox.jsch.io</a>
-  <br>
+</p>
+
+<p align="center">
   ![Netlify Status](https://api.netlify.com/api/v1/badges/ae1346d4-b102-4134-b3e0-8a1fb5379c02/deploy-status)
 </p>
 
