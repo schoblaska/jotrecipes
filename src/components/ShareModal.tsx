@@ -12,6 +12,9 @@ interface ShareModalProps {
   text: string;
 }
 
+// TODO: less jarring "working" state
+// TODO: break up into smaller components
+
 const ShareModal = ({ isOpen, setIsOpen, text }: ShareModalProps) => {
   const [url, setUrl] = useState(null);
   const [working, setWorking] = useState(false);
@@ -41,7 +44,7 @@ const ShareModal = ({ isOpen, setIsOpen, text }: ShareModalProps) => {
 
   return (
     <Modal
-      title="Share this recipe"
+      title="Share"
       isOpen={isOpen}
       setIsOpen={setIsOpen}
       onAfterClose={onAfterClose}
@@ -79,7 +82,7 @@ const ShareModal = ({ isOpen, setIsOpen, text }: ShareModalProps) => {
           <button onClick={handleSubmit} className="underline">
             here
           </button>{" "}
-          to share this recipe.
+          to generate a link to this recipe.
         </div>
       )}
     </Modal>
