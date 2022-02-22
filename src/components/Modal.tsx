@@ -6,9 +6,10 @@ interface ModalProps {
   isOpen: boolean;
   setIsOpen: Dispatch<boolean>;
   title?: string;
+  children?: JSX.Element | string;
 }
 
-const Modal = ({ isOpen, setIsOpen, title }: ModalProps) => (
+const Modal = ({ isOpen, setIsOpen, title, children }: ModalProps) => (
   <ReactModal
     ariaHideApp={false}
     isOpen={isOpen}
@@ -26,10 +27,7 @@ const Modal = ({ isOpen, setIsOpen, title }: ModalProps) => (
       </div>
     </div>
 
-    <div className="bg-purple-500 p-4">
-      Hello, this is the modal. What happens if the text gets really long, I
-      wonder?
-    </div>
+    <div className="bg-purple-500 p-4">{children}</div>
   </ReactModal>
 );
 
