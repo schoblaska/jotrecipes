@@ -33,11 +33,13 @@ const createRecipe = async (
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "POST") {
-    const recipe = await createRecipe(req.body.title, req.body.text);
+    const data = JSON.parse(req.body);
+    const recipe = await createRecipe(data.title || "", data.text || "");
 
     if (recipe === null) {
       res.status(500);
     } else {
+      // TODO: put host in env var or something
       res.status(200).json({ url: `https://recipebox.jsch.io/${recipe.slug}` });
     }
   } else {
