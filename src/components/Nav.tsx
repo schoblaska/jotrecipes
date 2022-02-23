@@ -24,11 +24,11 @@ const Nav = ({ printRef, text }: NavProps) => {
       <div className="mx-auto max-w-4xl">
         <div className="flex h-16 flex-none items-center px-6 font-mono text-purple-100">
           <div
-            className="flex flex-initial cursor-pointer"
+            className="flex flex-initial cursor-pointer items-center"
             onClick={() => setShowAbout(!showAbout)}
           >
             <div className="mr-2">About</div>
-            <div className={showAbout ? "rotate-180" : ""}>
+            <div className={`h-5 w-5 ${showAbout ? "rotate-180" : ""}`}>
               <ChevronUpIcon />
             </div>
           </div>

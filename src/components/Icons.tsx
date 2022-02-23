@@ -39,7 +39,7 @@ export const UploadIcon = () => (
 export const ChevronUpIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="h-6 w-6"
+    className="h-full w-full"
     fill="none"
     viewBox="0 0 24 24"
     stroke="currentColor"
@@ -56,7 +56,7 @@ export const ChevronUpIcon = () => (
 export const XIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="h-6 w-6"
+    className="h-full w-full"
     fill="none"
     viewBox="0 0 24 24"
     stroke="currentColor"
@@ -73,7 +73,7 @@ export const XIcon = () => (
 export const QrcodeIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="h-6 w-6"
+    className="h-full w-full"
     fill="none"
     viewBox="0 0 24 24"
     stroke="currentColor"
@@ -90,7 +90,7 @@ export const QrcodeIcon = () => (
 export const ClipboardIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="h-6 w-6"
+    className="h-full w-full"
     fill="none"
     viewBox="0 0 24 24"
     stroke="currentColor"
@@ -107,7 +107,7 @@ export const ClipboardIcon = () => (
 export const ClipboardCheckIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="h-6 w-6"
+    className="h-full w-full"
     fill="none"
     viewBox="0 0 24 24"
     stroke="currentColor"

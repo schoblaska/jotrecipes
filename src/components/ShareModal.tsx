@@ -51,7 +51,7 @@ const ShareModal = ({ isOpen, setIsOpen, text }: ShareModalProps) => {
     >
       {working ? (
         <div className="flex items-center">
-          <div className="mr-2 animate-pulse">
+          <div className="mr-2 h-8 w-8 animate-pulse">
             <QrcodeIcon />
           </div>{" "}
           Generating a URL for your recipe...
@@ -67,7 +67,7 @@ const ShareModal = ({ isOpen, setIsOpen, text }: ShareModalProps) => {
               onFocus={(e) => e.target.select()}
             />
             <div className="absolute inset-y-0 right-0 flex items-center bg-purple-700 px-2">
-              <div className="cursor-pointer" onClick={handleCopyUrl}>
+              <div className="h-6 w-6 cursor-pointer" onClick={handleCopyUrl}>
                 {copied ? <ClipboardCheckIcon /> : <ClipboardIcon />}
               </div>
             </div>

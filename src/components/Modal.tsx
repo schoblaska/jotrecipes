@@ -25,10 +25,10 @@ const Modal = ({
     className="mx-auto max-w-md font-mono text-sm text-white focus:outline-0"
     onRequestClose={() => setIsOpen(false)}
   >
-    <div className="flex items-center justify-end bg-purple-600 px-4 py-2">
+    <div className="flex items-center justify-end bg-purple-600 p-2">
       <div className="mr-4 flex-grow leading-none">{title}</div>
       <div
-        className="cursor-pointer font-mono"
+        className="h-5 w-5 cursor-pointer font-mono"
         onClick={() => setIsOpen(false)}
       >
         <XIcon />
