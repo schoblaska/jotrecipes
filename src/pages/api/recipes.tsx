@@ -25,6 +25,7 @@ const createRecipe = async (
       // P2002 is a unique constraint violation; try again with more padding
       return createRecipe(title, text, npad + 1);
     } else {
+      // TODO: log somewhere
       return null;
     }
   }
@@ -32,6 +33,7 @@ const createRecipe = async (
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "POST") {
+    // TODO: pass actual title and text
     const recipe = await createRecipe("my title", "my text");
 
     if (recipe === null) {

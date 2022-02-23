@@ -58,7 +58,7 @@ const ShareModal = ({ isOpen, setIsOpen, text }: ShareModalProps) => {
         </div>
       ) : url ? (
         <div>
-          <div className="relative w-80 bg-purple-600 p-2">
+          <div className="relative w-96 bg-purple-600 p-2">
             <input
               type="text"
               readOnly

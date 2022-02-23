@@ -22,7 +22,7 @@ const Modal = ({
     isOpen={isOpen}
     onAfterClose={onAfterClose}
     overlayClassName="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity flex flex-col justify-center min-h-screen"
-    className="mx-auto max-w-md font-mono text-sm text-white focus:outline-0"
+    className="mx-auto max-w-lg font-mono text-sm text-white focus:outline-0"
     onRequestClose={() => setIsOpen(false)}
   >
     <div className="flex items-center justify-end bg-purple-600 p-2">
