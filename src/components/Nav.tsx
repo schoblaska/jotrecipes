@@ -1,8 +1,9 @@
 import React, { useState, RefObject } from "react";
 import { UploadIcon, ChevronUpIcon } from "components/Icons";
-import PrintButton from "components/PrintButton";
+import PrintButton from "components/Nav/PrintButton";
 import About from "components/Nav/About";
 import ShareModal from "components/ShareModal";
+import Button from "components/Nav/Button";
 
 interface NavProps {
   printRef: RefObject<HTMLDivElement>;
@@ -32,13 +33,14 @@ const Nav = ({ printRef, text }: NavProps) => {
             </div>
           </div>
           <div className="flex-1"></div>
-          <div
-            className="mr-4 flex-initial cursor-pointer"
-            onClick={() => setShareModalIsOpen(true)}
-          >
-            <UploadIcon />
-          </div>
-          <div className="h-6 flex-initial">
+
+          <div className="flex flex-initial gap-x-2">
+            <Button
+              onClick={() => setShareModalIsOpen(true)}
+              icon={<UploadIcon />}
+            >
+              Share
+            </Button>
             <PrintButton printRef={printRef} />
           </div>
         </div>

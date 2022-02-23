@@ -1,14 +1,11 @@
 import React, { RefObject } from "react";
 import { PrinterIcon } from "components/Icons";
 import ReactToPrint from "react-to-print";
+import Button from "components/Nav/Button";
 
 const PrintButton = ({ printRef }: { printRef: RefObject<HTMLDivElement> }) => (
   <ReactToPrint
-    trigger={() => (
-      <button>
-        <PrinterIcon />
-      </button>
-    )}
+    trigger={() => <Button icon={<PrinterIcon />}>Print</Button>}
     content={() => printRef.current}
     documentTitle={"recipes"}
   />
