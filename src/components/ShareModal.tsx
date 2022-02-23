@@ -23,7 +23,13 @@ const ShareModal = ({ isOpen, setIsOpen, text }: ShareModalProps) => {
   const handleSubmit = () => {
     setWorking(true);
 
-    fetch("/api/recipes", { method: "POST" }).then((res) =>
+    fetch("/api/recipes", {
+      method: "POST",
+      body: JSON.stringify({
+        title: "My Recipe Title",
+        text: text,
+      }),
+    }).then((res) =>
       res.json().then((data) => {
         setUrl(data.url);
         setWorking(false);

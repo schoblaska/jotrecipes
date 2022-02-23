@@ -33,8 +33,7 @@ const createRecipe = async (
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "POST") {
-    // TODO: pass actual title and text
-    const recipe = await createRecipe("my title", "my text");
+    const recipe = await createRecipe(req.body.title, req.body.text);
 
     if (recipe === null) {
       res.status(500);
