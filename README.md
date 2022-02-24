@@ -1,13 +1,11 @@
-<p align="center">
+<div align="center">
   <img width="400px" src="https://raw.githubusercontent.com/joeyschoblaska/recipebox/main/docs/logo-dark@2x.png#gh-dark-mode-only" />
   <img width="400px" src="https://raw.githubusercontent.com/joeyschoblaska/recipebox/main/docs/logo-light@2x.png#gh-light-mode-only" />
-</p>
 
-<p align="center">
   <a href="https://recipebox.jsch.io">https://recipebox.jsch.io</a>
-</p>
 
-![Netlify Status](https://api.netlify.com/api/v1/badges/ae1346d4-b102-4134-b3e0-8a1fb5379c02/deploy-status)
+  ![Netlify Status](https://api.netlify.com/api/v1/badges/ae1346d4-b102-4134-b3e0-8a1fb5379c02/deploy-status)
+</div>
 
 A tool for converting Markdown recipes into a printable card format from Ben Cohen's [cuisine package](http://ftp.gwdg.de/pub/ctan/macros/latex/contrib/cuisine/cuisine.pdf) for LaTeX. This format puts the ingredients and instructions for each step side-by-side, making it easier to scan while you're cooking.
 

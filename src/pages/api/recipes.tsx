@@ -8,7 +8,8 @@ const createRecipe = async (
   text: string,
   npad: number = 4
 ): Promise<Recipe | null> => {
-  const slug = `${padding(npad)}-${slugify(title)}`;
+  const titleSlug = slugify(title);
+  const slug = titleSlug ? `${padding(npad)}-${titleSlug}` : padding(npad);
 
   try {
     const recipe = await prisma.recipe.create({
