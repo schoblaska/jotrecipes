@@ -2,7 +2,7 @@
   <img width="400px" src="https://raw.githubusercontent.com/joeyschoblaska/jotrecipes/main/docs/logo-dark@2x.png#gh-dark-mode-only" />
   <img width="400px" src="https://raw.githubusercontent.com/joeyschoblaska/jotrecipes/main/docs/logo-light@2x.png#gh-light-mode-only" />
 
-  <a href="https://jot.recipes">https://jot.recipes</a>
+  <a href="https://jot.recipes">jot.recipes</a>
 
   ![Netlify Status](https://api.netlify.com/api/v1/badges/ae1346d4-b102-4134-b3e0-8a1fb5379c02/deploy-status)
 </div>
