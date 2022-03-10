@@ -25,10 +25,10 @@ const About = () => (
       <li>
         Github:{" "}
         <a
-          href="https://github.com/joeyschoblaska/recipebox"
+          href="https://github.com/joeyschoblaska/jotrecipes"
           className="underline hover:text-purple-50"
         >
-          joeyschoblaska/recipebox
+          joeyschoblaska/jotrecipes
         </a>
       </li>
     </ul>

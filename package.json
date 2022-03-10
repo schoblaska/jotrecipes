@@ -1,5 +1,5 @@
 {
-  "name": "recipebox",
+  "name": "Jot Recipes",
   "private": true,
   "scripts": {
     "dev": "next dev",

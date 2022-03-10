@@ -41,7 +41,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       res.status(500);
     } else {
       // TODO: put host in env var or something
-      res.status(200).json({ url: `https://recipebox.jsch.io/${recipe.slug}` });
+      res.status(200).json({ url: `https://jot.recipes/${recipe.slug}` });
     }
   } else {
     res.status(404);
