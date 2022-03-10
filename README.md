@@ -1,6 +1,9 @@
 <div align="center">
   <a href="https://jot.recipes">
     <img width="400px" src="https://raw.githubusercontent.com/joeyschoblaska/jotrecipes/main/docs/logo-dark@2x.png#gh-dark-mode-only" />
+  </a>
+  
+  <a href="https://jot.recipes">
     <img width="400px" src="https://raw.githubusercontent.com/joeyschoblaska/jotrecipes/main/docs/logo-light@2x.png#gh-light-mode-only" />
   </a>
 
