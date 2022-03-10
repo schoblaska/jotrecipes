@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Recipe Box</title>
+        <title>Jot Recipes</title>
 
         <link
           rel="apple-touch-icon"
