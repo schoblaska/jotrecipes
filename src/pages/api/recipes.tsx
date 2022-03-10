@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import prisma from "lib/prisma";
-import { padding, slugify } from "lib/helpers";
+import { padding, sluggify } from "lib/helpers";
 import { Prisma, Recipe } from "@prisma/client";
 
 const createRecipe = async (
@@ -8,7 +8,7 @@ const createRecipe = async (
   text: string,
   npad: number = 4
 ): Promise<Recipe | null> => {
-  const titleSlug = slugify(title);
+  const titleSlug = sluggify(title);
   const slug = titleSlug ? `${padding(npad)}-${titleSlug}` : padding(npad);
 
   try {
