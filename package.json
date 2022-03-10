@@ -1,5 +1,5 @@
 {
-  "name": "Jot Recipes",
+  "name": "jotrecipes",
   "private": true,
   "scripts": {
     "dev": "next dev",
