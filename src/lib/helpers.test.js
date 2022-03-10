@@ -10,7 +10,7 @@ describe("padding", () => {
   });
 });
 
-describe("padding", () => {
+describe("sluggify", () => {
   it("converts capitals to lowercase", () => {
     const slug = sluggify("Title");
     expect(slug).toEqual("title");
@@ -18,6 +18,11 @@ describe("padding", () => {
 
   it("converts spaces to hyphens", () => {
     const slug = sluggify("my title");
+    expect(slug).toEqual("my-title");
+  });
+
+  it("preserves hyphens", () => {
+    const slug = sluggify("my-title");
     expect(slug).toEqual("my-title");
   });
 

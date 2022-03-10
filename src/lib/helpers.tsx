@@ -18,7 +18,7 @@ export const padding = (n: number) => {
 export const sluggify = (str: string) => {
   return str
     .toLowerCase()
-    .replace(/[^a-z0-9\s]/g, "")
+    .replace(/[^a-z0-9\s-]/g, "")
     .trim()
     .replace(/\s/g, "-")
     .substring(0, 32);

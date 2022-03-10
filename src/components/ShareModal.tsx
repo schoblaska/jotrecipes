@@ -5,6 +5,7 @@ import {
   ClipboardIcon,
   ClipboardCheckIcon,
 } from "components/Icons";
+import parseRecipes from "lib/parseRecipes";
 
 interface ShareModalProps {
   isOpen: boolean;
@@ -12,9 +13,7 @@ interface ShareModalProps {
   text: string;
 }
 
-// TODO: less jarring "working" state
 // TODO: break up into smaller components
-
 const ShareModal = ({ isOpen, setIsOpen, text }: ShareModalProps) => {
   const [url, setUrl] = useState(null);
   const [working, setWorking] = useState(false);
@@ -23,10 +22,15 @@ const ShareModal = ({ isOpen, setIsOpen, text }: ShareModalProps) => {
   const handleSubmit = () => {
     setWorking(true);
 
+    const recipes = parseRecipes(text);
+    const title = recipes
+      .map((r) => r.title.replace(/http[^\s]+/g, "").trim())
+      .join("--");
+
     fetch("/api/recipes", {
       method: "POST",
       body: JSON.stringify({
-        title: "My Recipe Title",
+        title: title,
         text: text,
       }),
     }).then((res) =>
