@@ -8,7 +8,7 @@ interface ButtonProps {
 
 const Button = ({ children, onClick, icon }: ButtonProps) => (
   <button
-    className="flex items-center rounded border border-purple-200 py-2 px-4 hover:border-purple-300 hover:bg-purple-700"
+    className="flex items-center rounded border-2 border-purple-200 py-2 px-4 hover:border-purple-300 hover:bg-purple-700"
     onClick={onClick}
   >
     <div>{children}</div>
