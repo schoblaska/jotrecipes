@@ -1,15 +1,21 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
 import prisma from "lib/prisma";
 import parseRecipes from "lib/parseRecipes";
+import App from "components/App";
 import Recipe from "components/Recipe";
 import Button from "components/RecipePage/Button";
 import { PrinterIcon, PencilIcon } from "components/Icons";
 
 const RecipePage = ({ text }: { text: string }) => {
   const printRef = useRef<HTMLDivElement>(null);
+  const [showApp, setShowApp] = useState(false);
   const recipes = parseRecipes(text);
+
+  if (showApp) {
+    return <App initialText={text} />;
+  }
 
   return (
     <div className="mx-auto max-w-prose font-serif">
@@ -24,7 +30,9 @@ const RecipePage = ({ text }: { text: string }) => {
           .
         </div>
         <div className="mr-2">
-          <Button icon={<PencilIcon />}>Edit</Button>
+          <Button icon={<PencilIcon />} onClick={() => setShowApp(true)}>
+            Edit
+          </Button>
         </div>
         <div>
           <Button icon={<PrinterIcon />}>Print</Button>
@@ -32,10 +40,7 @@ const RecipePage = ({ text }: { text: string }) => {
       </div>
       <div className="w-full print:pt-20" ref={printRef}>
         {recipes.map((recipe, i) => (
-          <>
-            <Recipe recipe={recipe} key={i} />
-            <Recipe recipe={recipe} key={i} />
-          </>
+          <Recipe recipe={recipe} key={i} />
         ))}
       </div>
     </div>
