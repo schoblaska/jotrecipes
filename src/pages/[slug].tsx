@@ -6,7 +6,8 @@ import parseRecipes from "lib/parseRecipes";
 import App from "components/App";
 import Recipe from "components/Recipe";
 import Button from "components/RecipePage/Button";
-import { PrinterIcon, PencilIcon } from "components/Icons";
+import PrintButton from "components/RecipePage/PrintButton";
+import { PencilIcon } from "components/Icons";
 
 const RecipePage = ({ text }: { text: string }) => {
   const printRef = useRef<HTMLDivElement>(null);
@@ -18,8 +19,8 @@ const RecipePage = ({ text }: { text: string }) => {
   }
 
   return (
-    <div className="mx-auto max-w-prose font-serif">
-      <div className="my-8 flex w-full items-center">
+    <div className="mx-auto max-w-prose font-serif" ref={printRef}>
+      <div className="my-8 flex w-full items-center print:hidden">
         <div className="flex-grow">
           Created with{" "}
           <Link href="/">
@@ -35,10 +36,10 @@ const RecipePage = ({ text }: { text: string }) => {
           </Button>
         </div>
         <div>
-          <Button icon={<PrinterIcon />}>Print</Button>
+          <PrintButton printRef={printRef}>Print</PrintButton>
         </div>
       </div>
-      <div className="w-full print:pt-20" ref={printRef}>
+      <div className="max-w-prose print:pt-20">
         {recipes.map((recipe, i) => (
           <Recipe recipe={recipe} key={i} />
         ))}
