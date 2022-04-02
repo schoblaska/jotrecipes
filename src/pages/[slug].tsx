@@ -36,7 +36,7 @@ const RecipePage = ({ text }: { text: string }) => {
           </Button>
         </div>
         <div>
-          <PrintButton printRef={printRef}>Print</PrintButton>
+          <PrintButton printRef={printRef} />
         </div>
       </div>
       <div className="max-w-prose print:pt-20">
