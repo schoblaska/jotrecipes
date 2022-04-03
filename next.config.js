@@ -1,13 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      config.externals.push("@prisma/client");
-    }
+  // webpack: (config, { isServer }) => {
+  //   if (isServer) {
+  //     config.externals.push("@prisma/client");
+  //   }
 
-    return config;
-  },
+  //   return config;
+  // },
 };
 
 module.exports = nextConfig;
