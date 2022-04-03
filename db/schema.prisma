@@ -10,7 +10,7 @@ datasource db {
 generator client {
   provider        = "prisma-client-js"
   previewFeatures = ["referentialIntegrity"]
-  binaryTargets   = ["native", "debian-openssl-1.1.x"]
+  binaryTargets   = ["native"]
 }
 
 model Recipe {
