@@ -16,7 +16,7 @@ const Nav = ({ printRef, text }: NavProps) => {
   const [aboutModalIsOpen, setAboutModalIsOpen] = useState(false);
 
   return (
-    <div className="mx-auto mb-4 max-w-prose font-serif print:hidden">
+    <div className="mx-auto mb-8 max-w-prose font-serif print:hidden">
       <ShareModal
         isOpen={shareModalIsOpen}
         setIsOpen={setShareModalIsOpen}
@@ -24,7 +24,7 @@ const Nav = ({ printRef, text }: NavProps) => {
       />
       <AboutModal isOpen={aboutModalIsOpen} setIsOpen={setAboutModalIsOpen} />
       <div>
-        <div className="flex h-16 flex-none items-center text-purple-100">
+        <div className="flex flex-none items-center text-purple-100">
           <div className="flex flex-initial">
             <a
               className="cursor-pointer text-purple-700 underline hover:text-purple-600"
