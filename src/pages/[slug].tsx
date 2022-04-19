@@ -5,8 +5,8 @@ import prisma from "lib/prisma";
 import parseRecipes from "lib/parseRecipes";
 import App from "components/App";
 import Recipe from "components/Recipe";
-import Button from "components/RecipePage/Button";
-import PrintButton from "components/RecipePage/PrintButton";
+import Button from "components/Button";
+import PrintButton from "components/PrintButton";
 import { PencilIcon } from "components/Icons";
 
 const RecipePage = ({ text }: { text: string }) => {

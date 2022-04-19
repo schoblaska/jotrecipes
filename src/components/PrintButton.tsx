@@ -1,7 +1,7 @@
 import React, { RefObject } from "react";
 import { PrinterIcon } from "components/Icons";
 import ReactToPrint from "react-to-print";
-import Button from "components/RecipePage/Button";
+import Button from "components/Button";
 
 const PrintButton = ({ printRef }: { printRef: RefObject<HTMLDivElement> }) => (
   <ReactToPrint

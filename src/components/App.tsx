@@ -16,13 +16,13 @@ const App = ({ initialText }: { initialText?: string }) => {
         <div className="no-scrollbar overflow-scroll">
           <Editor value={text} setValue={setText} />
         </div>
-        <Nav printRef={printRef} text={text} />
       </div>
       <div className="no-scrollbar h-screen overflow-scroll p-6">
         <div
           className="mx-auto max-w-prose font-serif print:pt-20"
           ref={printRef}
         >
+          <Nav printRef={printRef} text={text} />
           {recipes.map((recipe, i) => (
             <Recipe recipe={recipe} key={i} />
           ))}
