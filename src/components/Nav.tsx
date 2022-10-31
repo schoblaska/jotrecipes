@@ -1,7 +1,6 @@
 import React, { useState, RefObject } from "react";
-import { UploadIcon, ChevronUpIcon } from "components/Icons";
+import { UploadIcon } from "components/Icons";
 import PrintButton from "components/PrintButton";
-import About from "components/Nav/About";
 import ShareModal from "components/Nav/ShareModal";
 import AboutModal from "components/Nav/AboutModal";
 import Button from "components/Button";
