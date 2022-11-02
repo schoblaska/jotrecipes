@@ -1,8 +1,8 @@
-import { PrismaClient, Prisma } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-const recipeData: Prisma.RecipeCreateInput[] = [
+const recipeData = [
   {
     slug: "9afd-jeffrey-morgenthalers-eggnog",
     title: "Jeffrey Morgenthaler's Eggnog",
