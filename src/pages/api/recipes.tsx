@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import prisma from "lib/prisma";
 import { padding, sluggify } from "lib/helpers";
 import { Prisma, Recipe } from "@prisma/client";
+import md5 from "md5";
 
 const createRecipe = async (
   title: string,
@@ -10,13 +11,20 @@ const createRecipe = async (
 ): Promise<Recipe | null> => {
   const titleSlug = sluggify(title);
   const slug = titleSlug ? `${padding(npad)}-${titleSlug}` : padding(npad);
+  const hash = md5(text);
 
   try {
-    const recipe = await prisma.recipe.create({
-      data: { title: title || "", text: text || "", slug },
+    const foundRecipe = await prisma.recipe.findUnique({
+      where: { hash },
     });
 
-    return recipe;
+    if (foundRecipe) {
+      return foundRecipe;
+    }
+
+    return await prisma.recipe.create({
+      data: { title: title || "", text: text || "", slug, hash },
+    });
   } catch (e) {
     if (
       e instanceof Prisma.PrismaClientKnownRequestError &&

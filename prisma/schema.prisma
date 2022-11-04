@@ -13,8 +13,10 @@ datasource db {
 model Recipe {
   id    String @id @default(cuid())
   slug  String @unique
+  hash  String @unique
   title String
   text  String
 
   @@index([slug])
+  @@index([hash])
 }
