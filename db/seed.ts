@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import md5 from "md5";
 
 const prisma = new PrismaClient();
 
@@ -37,7 +38,7 @@ async function main() {
 
   for (const r of recipeData) {
     const recipe = await prisma.recipe.create({
-      data: r,
+      data: { ...r, hash: md5(r.text) },
     });
     console.log(`Created recipe with id: ${recipe.id}`);
   }
