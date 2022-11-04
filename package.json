@@ -6,7 +6,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest"
+    "test": "jest",
+    "migrate": "prisma migrate deploy"
   },
   "dependencies": {
     "@prisma/client": "^4.5",
