@@ -13,7 +13,6 @@ RUN \
   else echo "Lockfile not found." && exit 1; \
   fi
 
-
 # Rebuild the source code only when needed
 FROM node:16-alpine AS builder
 WORKDIR /app
@@ -28,16 +27,13 @@ ENV NEXT_TELEMETRY_DISABLED 1
 RUN yarn run prisma generate
 RUN yarn build
 
-# If using npm comment out above and use below instead
-# RUN npm run build
-
 # Production image, copy all the files and run next
 FROM node:16-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV production
 # Uncomment the following line in case you want to disable telemetry during runtime.
-# ENV NEXT_TELEMETRY_DISABLED 1
+ENV NEXT_TELEMETRY_DISABLED 1
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
@@ -54,5 +50,7 @@ USER nextjs
 EXPOSE 3000
 
 ENV PORT 3000
+
+ENTRYPOINT ["/app/entrypoint.sh"]
 
 CMD ["node", "server.js"]
