@@ -1,6 +1,8 @@
 #!/bin/sh
 set -e
 
-yarn migrate
+echo $DATABASE_URL
+
+yarn run prisma migrate deploy
 
 exec "$@"
