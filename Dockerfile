@@ -55,6 +55,6 @@ EXPOSE 3000
 
 ENV PORT 3000
 
-ENTRYPOINT ["sh", "/app/entrypoint.sh"]
+ENTRYPOINT ["sh", "-c", "/app/entrypoint.sh"]
 
 CMD ["node", "server.js"]
