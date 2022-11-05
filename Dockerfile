@@ -47,14 +47,10 @@ COPY --chown=nextjs:nodejs prisma ./prisma/
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-COPY entrypoint.sh ./
-
 USER nextjs
 
 EXPOSE 3000
 
 ENV PORT 3000
-
-# ENTRYPOINT ["sh", "-c", "/app/entrypoint.sh"]
 
 CMD ["yarn", "prod"]
