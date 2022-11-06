@@ -27,3 +27,4 @@ yarn dev
 * Update dev instructions with env var / db setup
 * Drop title from Recipe table?
 * Rethink project lede. Use something like "pastebin for recipes"?
+* Seasonal default recipes
