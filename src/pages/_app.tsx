@@ -5,12 +5,10 @@ import type { AppProps } from "next/app";
 
 function MyApp({ Component, pageProps }: AppProps) {
   // @ts-ignore
-  const metaOpenGraphTitle = pageProps["metaOpenGraphTitle"] || "Jot Recipes";
+  const metaOpenGraphTitle = pageProps["metaOpenGraphTitle"];
 
-  const metaOpenGraphDescription =
-    // @ts-ignore
-    pageProps["metaOpenGraphDescription"] ||
-    "Share Markdown recipes in a minimal format optimized for reading and printing.";
+  // @ts-ignore
+  const metaOpenGraphDescription = pageProps["metaOpenGraphDescription"];
 
   return (
     <>
@@ -35,10 +33,27 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <link rel="manifest" href="/site.webmanifest" />
 
-        <meta property="og:title" content={metaOpenGraphTitle} />
-        <meta property="og:description" content={metaOpenGraphDescription} />
-        <meta property="og:image" content="https://jot.recipes/brand.png" />
-        <meta property="og:url" content="https://jot.recipes" />
+        {metaOpenGraphTitle ? (
+          <>
+            <meta property="og:title" content={metaOpenGraphTitle} />
+            {metaOpenGraphDescription && (
+              <meta
+                property="og:description"
+                content={metaOpenGraphDescription}
+              />
+            )}
+          </>
+        ) : (
+          <>
+            <meta property="og:title" content="Jot Recipes" />
+            <meta
+              property="og:description"
+              content="Share recipe cards in a simple Markdown format."
+            />
+            <meta property="og:image" content="https://jot.recipes/brand.png" />
+            <meta property="og:url" content="https://jot.recipes" />
+          </>
+        )}
       </Head>
       <Component {...pageProps} />
     </>
