@@ -13,7 +13,6 @@ A tool for converting Markdown recipes into a printable card format from Ben Coh
   </a>
 </p>
 
-
 ## Development
 Jot Recipes is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). You can run it locally with the following commands:
 
@@ -23,3 +22,9 @@ cd jotrecipes
 yarn
 yarn dev
 ```
+
+## TODO
+* Update dev instructions with env var / db setup
+* Drop title from Recipe table?
+* Meta OG tags for root component
+* Rethink project lede. Use something like "pastebin for recipes"?

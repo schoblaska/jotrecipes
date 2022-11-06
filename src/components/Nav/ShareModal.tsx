@@ -22,15 +22,9 @@ const ShareModal = ({ isOpen, setIsOpen, text }: ShareModalProps) => {
   const handleSubmit = () => {
     setWorking(true);
 
-    const recipes = parseRecipes(text);
-    const title = recipes
-      .map((r) => r.title.replace(/http[^\s]+/g, "").trim())
-      .join("--");
-
     fetch("/api/recipes", {
       method: "POST",
       body: JSON.stringify({
-        title: title,
         text: text,
       }),
     }).then((res) =>

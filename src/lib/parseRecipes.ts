@@ -1,5 +1,6 @@
 export interface RecipeType {
   title: string;
+  titleText: string;
   subtitle: string;
   body: string[];
   steps: RecipeStepType[];
@@ -21,9 +22,12 @@ const parseRecipes = (str: string): RecipeType[] => {
 
     if (titleMatch) {
       const [title, ...subtitle] = titleMatch[1].split("|");
+      const titleText = title.match(/\[(.*)\]/)?.[1] || title;
+
       // push a new recipe onto the array
       recipes.push({
-        title: title,
+        title,
+        titleText,
         subtitle: subtitle.join(" | "),
         body: [],
         steps: [],
