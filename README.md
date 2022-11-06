@@ -26,5 +26,4 @@ yarn dev
 ## TODO
 * Update dev instructions with env var / db setup
 * Drop title from Recipe table?
-* Meta OG tags for root component
 * Rethink project lede. Use something like "pastebin for recipes"?
