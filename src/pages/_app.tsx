@@ -33,6 +33,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         {metaOpenGraphTitle && (
           <meta property="og:title" content={metaOpenGraphTitle} />
         )}
+
+        <meta
+          property="og:image"
+          content="https://raw.githubusercontent.com/joeyschoblaska/jotrecipes/main/docs/logo-light@2x.png#gh-light-mode-only"
+        />
       </Head>
       <Component {...pageProps} />
     </>
