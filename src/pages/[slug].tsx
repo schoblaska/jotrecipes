@@ -68,10 +68,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       };
     }
 
+    const parsed = parseRecipes(recipe.text);
+
     return {
       props: {
         text: recipe.text,
-        metaOpenGraphTitle: generateMetaOpenGraphTitle(recipe.text),
+        metaOpenGraphTitle: parsed.map((r) => r.titleText).join(", "),
+        metaOpenGraphDescription: parsed[0].body.join(" ").trim(),
       },
     };
   } catch (e) {
@@ -86,11 +89,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: [],
     fallback: "blocking",
   };
-};
-
-const generateMetaOpenGraphTitle = (text: string) => {
-  const recipes = parseRecipes(text);
-  return recipes.map((r) => r.titleText).join(", ");
 };
 
 export default RecipePage;
