@@ -19,7 +19,7 @@ const RecipePage = ({ text }: { text: string }) => {
   }
 
   return (
-    <div className="mx-auto max-w-prose font-serif" ref={printRef}>
+    <div className="mx-auto max-w-prose px-4 font-serif md:px-0" ref={printRef}>
       <div className="my-8 flex w-full items-center print:hidden">
         <div className="flex-grow">
           Created with{" "}
