@@ -34,10 +34,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <meta property="og:title" content={metaOpenGraphTitle} />
         )}
 
-        <meta
-          property="og:image"
-          content="https://raw.githubusercontent.com/joeyschoblaska/jotrecipes/main/docs/logo-light@2x.png#gh-light-mode-only"
-        />
+        <meta property="og:image" content="https://jot.recipes/brand.png" />
       </Head>
       <Component {...pageProps} />
     </>
