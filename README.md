@@ -45,3 +45,4 @@ yarn dev
 * robots.txt that prevents indexing of recipe pages (since it's user-generated content and there might be weird stuff in there)
 * Log errors to... somewhere if `createRecipe()` fails
 * Persist editor content to localstorage, with some way to reset (since the default placeholder is the only thing that shows how to use the format)
+* Show a popup the first time a user views the editor / homepage that explains how the app works
