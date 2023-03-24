@@ -25,6 +25,7 @@ Add eggs one at a time, mixing well. Then add the vanilla extract
 ## 4
 * dry ingredients from step 1
 * 300 g semisweet chocolate chips
+
 Reduce mixed speed to low and add the dry ingredients. Mix for 5-10 seconds until incorporated, then turn off the mixer. Add the chocolate chips and incorporate by hand with a spatula.
 
 ## 5
