@@ -31,10 +31,10 @@ const AboutModal = ({ isOpen, setIsOpen }: AboutModalProps) => (
       <li>
         Github:{" "}
         <a
-          href="https://github.com/joeyschoblaska/jotrecipes"
+          href="https://github.com/schoblaska/jotrecipes"
           className="underline hover:text-purple-50"
         >
-          joeyschoblaska/jotrecipes
+          schoblaska/jotrecipes
         </a>
       </li>
     </ul>
