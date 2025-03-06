@@ -1,6 +1,6 @@
 <div align="center">
-  <img width="400px" src="https://raw.githubusercontent.com/joeyschoblaska/jotrecipes/main/docs/logo-dark@2x.png#gh-dark-mode-only" />
-  <img width="400px" src="https://raw.githubusercontent.com/joeyschoblaska/jotrecipes/main/docs/logo-light@2x.png#gh-light-mode-only" />
+  <img width="400px" src="https://raw.githubusercontent.com/schoblaska/jotrecipes/main/docs/logo-dark@2x.png#gh-dark-mode-only" />
+  <img width="400px" src="https://raw.githubusercontent.com/schoblaska/jotrecipes/main/docs/logo-light@2x.png#gh-light-mode-only" />
 
   <a href="https://jot.recipes">jot.recipes</a>
 </div>
