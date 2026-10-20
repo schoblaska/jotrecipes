@@ -16,10 +16,10 @@ const About = () => (
       <li>
         Made by{" "}
         <a
-          href="https://twitter.com/joeyschoblaska"
+          href="https://x.com/jablaska"
           className="underline hover:text-purple-50"
         >
-          Joey Schoblaska
+          Joseph Schoblaska
         </a>
       </li>
       <li>
