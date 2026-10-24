@@ -1,12 +1,12 @@
-import React, { useState, RefObject } from "react";
-import { UploadIcon } from "components/Icons";
-import PrintButton from "components/PrintButton";
-import ShareModal from "components/Nav/ShareModal";
-import AboutModal from "components/Nav/AboutModal";
 import Button from "components/Button";
+import { UploadIcon } from "components/Icons";
+import AboutModal from "components/Nav/AboutModal";
+import ShareModal from "components/Nav/ShareModal";
+import PrintButton from "components/PrintButton";
+import { RefObject, useState } from "react";
 
 interface NavProps {
-  printRef: RefObject<HTMLDivElement>;
+  printRef: RefObject<HTMLDivElement | null>;
   text: string;
 }
 

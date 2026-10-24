@@ -1,11 +1,10 @@
-import React, { useState, Dispatch } from "react";
-import Modal from "components/Modal";
 import {
-  QrcodeIcon,
-  ClipboardIcon,
   ClipboardCheckIcon,
+  ClipboardIcon,
+  QrcodeIcon,
 } from "components/Icons";
-import parseRecipes from "lib/parseRecipes";
+import Modal from "components/Modal";
+import { Dispatch, useState } from "react";
 
 interface ShareModalProps {
   isOpen: boolean;
@@ -15,7 +14,7 @@ interface ShareModalProps {
 
 // TODO: break up into smaller components
 const ShareModal = ({ isOpen, setIsOpen, text }: ShareModalProps) => {
-  const [url, setUrl] = useState(null);
+  const [url, setUrl] = useState<string | null>(null);
   const [working, setWorking] = useState(false);
   const [copied, setCopied] = useState(false);
 
@@ -83,7 +82,7 @@ const ShareModal = ({ isOpen, setIsOpen, text }: ShareModalProps) => {
       ) : (
         <div>
           Click{" "}
-          <button onClick={handleSubmit} className="underline">
+          <button onClick={handleSubmit} className="cursor-pointer underline">
             here
           </button>{" "}
           to generate a link to this recipe.

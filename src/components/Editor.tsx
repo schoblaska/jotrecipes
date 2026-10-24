@@ -1,7 +1,7 @@
-import React, { Dispatch, SetStateAction } from "react";
-import SimpleEditor from "react-simple-code-editor";
 import * as prism from "prismjs";
 import "prismjs/components/prism-markdown";
+import { Dispatch, SetStateAction } from "react";
+import SimpleEditor from "react-simple-code-editor";
 
 const Editor = ({
   value,

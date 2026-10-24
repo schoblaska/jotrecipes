@@ -1,13 +1,11 @@
+import type { AppProps } from "next/app";
+import Head from "next/head";
 import "styles/index.css";
 import "styles/prism.css";
-import Head from "next/head";
-import type { AppProps } from "next/app";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  // @ts-ignore
   const metaOpenGraphTitle = pageProps["metaOpenGraphTitle"];
 
-  // @ts-ignore
   const metaOpenGraphDescription = pageProps["metaOpenGraphDescription"];
 
   return (

@@ -39,3 +39,5 @@ yarn-error.log*
 .env
 
 prisma/dev.sqlite*
+
+src/generated

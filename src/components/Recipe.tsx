@@ -1,12 +1,11 @@
-import React from "react";
+import Step from "components/Recipe/Step";
 import type { RecipeType } from "lib/parseRecipes";
 import ReactMarkdown from "react-markdown";
-import Step from "components/Recipe/Step";
 
 const Recipe = ({ recipe }: { recipe: RecipeType }) => (
   <div className="mb-8">
     <div className="mb-2 flex items-end border-b-2 border-gray-700">
-      <div className="flex-grow font-bold">
+      <div className="grow font-bold">
         <ReactMarkdown>{recipe.title}</ReactMarkdown>
       </div>
       <div>

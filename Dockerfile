@@ -1,55 +1,45 @@
-FROM node:16-alpine AS deps
-# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
-# openssl1.1-compat is needed for prisma to work: https://github.com/prisma/prisma/issues/14073#issuecomment-1348534199
-RUN apk add --update --no-cache openssl1.1-compat libc6-compat
+FROM node:24-slim AS base
+# prisma migrate still ships a native schema engine that links against openssl
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends openssl ca-certificates \
+  && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 
-# Install dependencies based on the preferred package manager
-COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
-RUN \
-  if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
-  elif [ -f package-lock.json ]; then npm ci; \
-  elif [ -f pnpm-lock.yaml ]; then yarn global add pnpm && pnpm i --frozen-lockfile; \
-  else echo "Lockfile not found." && exit 1; \
-  fi
+# Install dependencies
+FROM base AS deps
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
 
-# Rebuild the source code only when needed
-FROM node:16-alpine AS builder
-RUN apk add --update --no-cache openssl1.1-compat libc6-compat
-WORKDIR /app
+# Build
+FROM base AS builder
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-
-# Next.js collects completely anonymous telemetry data about general usage.
-# Learn more here: https://nextjs.org/telemetry
-# Uncomment the following line in case you want to disable telemetry during the build.
-ENV NEXT_TELEMETRY_DISABLED 1
-
-RUN yarn run prisma generate
+ENV NEXT_TELEMETRY_DISABLED=1
+RUN yarn prisma generate
 RUN yarn build
 
-# Production image, copy all the files and run next
-FROM node:16-alpine AS runner
-RUN apk add --update --no-cache openssl1.1-compat libc6-compat
-WORKDIR /app
+# Production image
+FROM base AS runner
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV PORT=3000
+# Docker sets HOSTNAME to the container id; Next's standalone server would bind to it
+ENV HOSTNAME=0.0.0.0
 
-ENV NODE_ENV production
-# Uncomment the following line in case you want to disable telemetry during runtime.
-ENV NEXT_TELEMETRY_DISABLED 1
-
-RUN yarn global add prisma@4.5
+# The CLI for `prisma migrate deploy` at container start. Pinned to the same
+# version as @prisma/client in package.json.
+RUN npm install -g prisma@7.10.1 && npm cache clean --force
 
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/prisma.config.ts ./prisma.config.ts
 COPY prisma ./prisma/
 
-# Automatically leverage output traces to reduce image size
-# https://nextjs.org/docs/advanced-features/output-file-tracing
+# Standalone output traces only what the server imports, keeping the image small
+# https://nextjs.org/docs/pages/api-reference/config/next-config-js/output
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 
 EXPOSE 3000
-
-ENV PORT 3000
 
 CMD ["yarn", "prod"]

@@ -13,7 +13,7 @@ export interface RecipeStepType {
 }
 
 const parseRecipes = (str: string): RecipeType[] => {
-  let recipes: RecipeType[] = [];
+  const recipes: RecipeType[] = [];
 
   str.split("\n").forEach((line) => {
     const titleMatch = line.match(/^#{1} (.*)/);

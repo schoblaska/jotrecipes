@@ -1,5 +1,5 @@
-import React, { Dispatch } from "react";
 import Modal from "components/Modal";
+import { Dispatch } from "react";
 
 interface AboutModalProps {
   isOpen: boolean;

@@ -3,9 +3,9 @@ export const padding = (n: number) => {
   // words in the padding
   const letters = "abcdefghijklmnopqrstuvwxyz";
   const numbers = "0123456789";
-  var result = "";
+  let result = "";
 
-  for (var i = 0; i < n; ++i)
+  for (let i = 0; i < n; ++i)
     if (i % 2 == 0) {
       result += letters[Math.floor(Math.random() * letters.length)];
     } else {

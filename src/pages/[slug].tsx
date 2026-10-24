@@ -1,13 +1,13 @@
-import React, { useRef, useState } from "react";
+import App from "components/App";
+import Button from "components/Button";
+import { PencilIcon } from "components/Icons";
+import PrintButton from "components/PrintButton";
+import Recipe from "components/Recipe";
+import parseRecipes from "lib/parseRecipes";
+import prisma from "lib/prisma";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
-import prisma from "lib/prisma";
-import parseRecipes from "lib/parseRecipes";
-import App from "components/App";
-import Recipe from "components/Recipe";
-import Button from "components/Button";
-import PrintButton from "components/PrintButton";
-import { PencilIcon } from "components/Icons";
+import { useRef, useState } from "react";
 
 const RecipePage = ({ text }: { text: string }) => {
   const printRef = useRef<HTMLDivElement>(null);
@@ -21,12 +21,13 @@ const RecipePage = ({ text }: { text: string }) => {
   return (
     <div className="mx-auto max-w-prose px-4 font-serif md:px-0" ref={printRef}>
       <div className="my-8 flex w-full items-center print:hidden">
-        <div className="flex-grow">
+        <div className="grow">
           Created with{" "}
-          <Link href="/">
-            <a className="text-purple-700 underline hover:text-purple-600">
-              Jot Recipes
-            </a>
+          <Link
+            href="/"
+            className="text-purple-700 underline hover:text-purple-600"
+          >
+            Jot Recipes
           </Link>
           .
         </div>
@@ -77,7 +78,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         metaOpenGraphDescription: parsed[0].body.join(" ").trim(),
       },
     };
-  } catch (e) {
+  } catch {
     return {
       notFound: true,
     };

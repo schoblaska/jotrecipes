@@ -14,17 +14,29 @@ A tool for converting Markdown recipes into a printable card format from Ben Coh
 </p>
 
 ## Development
-Jot Recipes is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). You can run it locally with the following commands:
+Jot Recipes is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). It stores shared recipes in SQLite through [Prisma](https://www.prisma.io/). To run it locally:
 
 ```
 git clone git@github.com:joeyschoblaska/jotrecipes.git
 cd jotrecipes
+cp .env.example .env
 yarn
+yarn prisma migrate dev
 yarn dev
 ```
 
+`yarn prisma migrate dev` creates `prisma/dev.sqlite`, applies the migrations, and generates the Prisma client into `src/generated` (gitignored). Rerun `yarn prisma generate` after pulling schema changes.
+
+Other scripts:
+
+* `yarn test` runs the Jest suite
+* `yarn lint` runs ESLint
+* `yarn prisma db seed` loads a sample recipe
+
+## Deployment
+Pushes to `main` build the Docker image and push it to the registry as `jotrecipes:latest`. The container runs `prisma migrate deploy` before starting the server, so it expects `DATABASE_URL` to point at a SQLite file on a mounted volume (for example `file:/data/prod.sqlite`).
+
 ## TODO
-* Update dev instructions with env var / db setup
 * Drop title column from Recipe table?
 * Seasonal default recipes
 * Printing

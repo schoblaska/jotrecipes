@@ -1,5 +1,3 @@
-import React from "react";
-
 const About = () => (
   <div className="bg-purple-500 p-6 font-mono text-sm text-purple-100">
     <p>

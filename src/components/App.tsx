@@ -1,9 +1,9 @@
-import React, { useState, useRef } from "react";
-import placeholder from "lib/placeholder";
-import parseRecipes from "lib/parseRecipes";
-import Recipe from "components/Recipe";
 import Editor from "components/Editor";
 import Nav from "components/Nav";
+import Recipe from "components/Recipe";
+import parseRecipes from "lib/parseRecipes";
+import placeholder from "lib/placeholder";
+import { useRef, useState } from "react";
 
 const App = ({ initialText }: { initialText?: string }) => {
   const [text, setText] = useState(initialText || placeholder);

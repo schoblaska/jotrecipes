@@ -1,5 +1,3 @@
-import React from "react";
-
 // https://heroicons.com/
 
 export const PrinterIcon = () => (
