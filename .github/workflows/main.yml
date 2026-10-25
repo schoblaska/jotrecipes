@@ -6,8 +6,12 @@ on:
   pull_request:
     branches: [main]
 
-env:
-  DOCKER_URL: docker.jsch.io
+# Pushes to GHCR as jotrecipes:main-<sha>-<unix-timestamp> and :latest on main.
+# Flux on the homelab public box picks the highest timestamp and rolls it out,
+# so a green run on main is a deploy (homelab repo: hosts/um890/apps/jotrecipes).
+permissions:
+  contents: read
+  packages: write
 
 jobs:
   test:
@@ -30,25 +34,29 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - name: Log into registry
+      - name: Image tag
+        id: meta
+        run: echo "tag=main-${GITHUB_SHA::7}-$(date +%s)" >> "$GITHUB_OUTPUT"
+
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/login-action@v3
         if: github.event_name == 'push'
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login $DOCKER_URL -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
 
-      - name: Build image
-        run: docker build . --tag image
-
-      - name: Push image
-        if: github.event_name == 'push'
-        run: |
-          IMAGE_ID=$DOCKER_URL/jotrecipes
-          # Strip git ref prefix from version
-          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-          # Strip "v" prefix from tag name
-          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
-          # Use Docker `latest` tag convention
-          [ "$VERSION" == "main" ] && VERSION=latest
-          echo IMAGE_ID=$IMAGE_ID
-          echo VERSION=$VERSION
-
-          docker tag image $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: linux/amd64
+          push: ${{ github.event_name == 'push' }}
+          labels: |
+            org.opencontainers.image.revision=${{ github.sha }}
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+          tags: |
+            ghcr.io/schoblaska/jotrecipes:${{ steps.meta.outputs.tag }}
+            ghcr.io/schoblaska/jotrecipes:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
